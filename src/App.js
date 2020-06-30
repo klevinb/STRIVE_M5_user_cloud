@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   fetchBookComments = async (id) => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = process.env.REACT_APP_API_URL
     const resp = await fetch(apiUrl + "/books/" + id + "/comments")
     if (resp.ok) {
       const comments = await resp.json()
@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   deleteComment = async (id) => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = process.env.REACT_APP_API_URL
     const resp = await fetch(apiUrl + "/books/comments/" + id, {
       method: "DELETE"
     })
@@ -76,7 +76,7 @@ class App extends Component {
 
   sendNewComment = async (e) => {
     e.preventDefault()
-    const apiUrl = process.env.API_URL
+    const apiUrl = process.env.REACT_APP_API_URL
     const resp = await fetch(apiUrl + "/books/" + this.state.newComment.bookID + "/comments", {
       method: "POST",
       body: JSON.stringify(this.state.newComment),
@@ -204,7 +204,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = process.env.REACT_APP_API_URL
     const resp = await fetch(apiUrl + "/books")
     if (resp.ok) {
       const books = await resp.json()
