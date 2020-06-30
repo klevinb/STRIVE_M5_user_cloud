@@ -101,7 +101,7 @@ class App extends Component {
       <div className="App" >
         <Container className="mt-5">
 
-          <Row md={3}>
+          <Row sm={1} md={3}>
             {this.state.books.map(book =>
               <Col key={book.asin} className="mb-3">
                 <Card style={{ width: '18rem' }}>
