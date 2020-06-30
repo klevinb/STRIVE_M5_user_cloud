@@ -103,7 +103,7 @@ class App extends Component {
 
           <Row sm={1} md={3}>
             {this.state.books.map(book =>
-              <Col key={book.asin} className="mb-3">
+              <Col key={book.asin} sm={12} className="mb-3">
                 <Card style={{ width: '18rem' }}>
                   <Card.Img variant="top" onClick={() => this.fetchBookComments(book.asin)} src={book.img} />
                   <Card.Body>
