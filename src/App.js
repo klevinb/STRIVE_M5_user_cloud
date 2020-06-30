@@ -101,7 +101,7 @@ class App extends Component {
       <div className="App" >
         <Container className="mt-5">
 
-          <Row sm={1} md={3}>
+          <Row sm={1} md={2} lg={3}>
             {this.state.books.map(book =>
               <Col key={book.asin} sm={12} className="mb-3">
                 <Card style={{ width: '18rem' }}>
@@ -128,26 +128,26 @@ class App extends Component {
               comments: []
             })}>
             <Modal.Body>
-              <ListGroup className="text-center">
+              <div className="text-center">
                 <h1>Comments</h1>
                 {this.state.comments.length > 0 ?
                   this.state.comments.map((comment, index) =>
-                    <ListGroup.Item key={index} className="d-flex justify-content-between">
-                      <div>
+                    <Row sm={2} key={index} className="d-flex justify-content-between">
+                      <Col sm={6}>
                         {comment.username} : {comment.text}
-                      </div>
-                      <div>
+                      </Col>
+                      <Col sm={6}>
                         <Button variant="danger" onClick={() => this.deleteComment(comment.commentID)} className="mr-3">Delete</Button>
                         <Button variant="warning">Edit</Button>
-                      </div>
-                    </ListGroup.Item>
+                      </Col>
+                    </Row>
                   )
                   :
                   <Alert variant="danger">
                     There are no comments for this book!
                   </Alert>
                 }
-              </ListGroup>
+              </div>
             </Modal.Body>
           </Modal>
           <Modal
